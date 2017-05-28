@@ -129,31 +129,3 @@ return
         WinMove, ahk_id %WinID%,,%winX%,%winY%,%winW%,%winH% 
     }
 return
-
-
-
-
-; WE DONT WANT CAPSLOCK
-; using escape instead is smart!
-; Caps alone    = Escape
-; Caps+sth      = AltGR+sth
-; Author: fwompner gmail com
-; additions /u/toneman77
-#InstallKeybdHook
-SetCapsLockState, alwaysoff
-Capslock::
-    Send {RAlt Down}
-    KeyWait, CapsLock
-    Send {RAlt Up}
-    if ( A_PriorKey = "CapsLock" )
-    {
-        Send {Esc}
-    }
-return
-
-; #IfWinExist, Enable nav-hotkeys: hjkl
- 	<^>!h::Send {Blind}{RAlt Up}{Left}{RAlt Down}
- 	<^>!j::Send {Blind}{RAlt Up}{Down}{RAlt Down}
- 	<^>!k::Send {Blind}{RAlt Up}{Up}{RAlt Down}
- 	<^>!l::Send {Blind}{RAlt Up}{Right}{RAlt Down}
-; #IfWinExist, ; end context-sensitive block
