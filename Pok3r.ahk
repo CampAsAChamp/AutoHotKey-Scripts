@@ -1,12 +1,8 @@
 #CommentFlag //
 #InstallKeybdHook
 
-// Author: Jarvis Prestidge
-// Description: Simulates my preferred keyboard layout, similiar to that of the Pok3r 60% keyboard
-// on any keyboard without programmable keys. i.e. my laptop ^^
-
-// <COMPILER: v1.1.22.00>
-
+// Author: Nick Schneider
+// Description: Addes Some Pok3r functionality and other easier shortcuts closer to the home row
 
 // =========================
 // Pok3r Layout Marcos
@@ -15,6 +11,8 @@
 #Persistent
 SetCapsLockState, AlwaysOff
 
+// Shift + CapsLock: Toggles CapsLock
++CapsLock::CapsLock
 
 // Capslock + jkli (left, down, up, right)
 
@@ -31,7 +29,18 @@ Capslock & l::Send {Blind}{Right DownTemp}
 Capslock & l up::Send {Blind}{Right Up}
 
 
-// Capslock + uon (-, home, end)
+// Capslock + uon (-, _, {, }, home, end)
+CapsLock & v:: Send, {rshift down}{V}{rshift up}
+
+CapsLock & g:: Send, {rshift down}{[}{rshift up}
+
+CapsLock & h:: Send, {rshift down}{]}{rshift up}
+
+CapsLock & t:: Send, {rshift down}{{}{rshift up}
+
+CapsLock & y:: Send, {rshift down}{}}{rshift up}
+
+CapsLock & m:: Send, {rshift down}{-}{rshift up}
 
 Capslock & n::SendInput {Blind}{- Down}
 Capslock & n up::SendInput {Blind}{- Up}
@@ -47,36 +56,28 @@ Capslock & o up::SendInput {Blind}{End Up}
 Capslock & BS::SendInput {Del Down}
 Capslock & BS up::SendInput {Del Up}
 
-// Make Capslock & m equivalent to WinKey+m (show Desktop)
-Capslock & m::SendInput {LWin Down}{m}{LWin UP}
 
 
 // Make Capslock & Enter equivalent to Control+Enter
-Capslock & Enter::SendInput {Ctrl down}{Enter}{Ctrl up}
+//Capslock & Enter::SendInput {Ctrl down}{Enter}{Ctrl up}
 
 
 // Make Capslock & Space equivalent to Control+Space
-Capslock & Space::SendInput {Ctrl down}{Space}{Ctrl up}
+//Capslock & Space::SendInput {Ctrl down}{Space}{Ctrl up}
 
   
 // Make Capslock & p equivalent to PrintScreen
 Capslock & p::SendInput {PrintScreen}
 
 
-// Make CapsLock & y open the Windows Calculator
-CapsLock & y::Run calc.exe
-
-
 // Make CapsLock & , the previous media key
-CapsLock & ,::SendInput {Media_Prev}
+CapsLock & q::SendInput {Media_Prev}
 
 
 // Make CapsLock & . the play/pause media key
-CapsLock & .::SendInput {Media_Play_Pause}
+CapsLock & w::SendInput {Media_Play_Pause}
+CapsLock & e::SendInput {Media_Next}
 
-
-// Make CapsLock & ? the next media key
-CapsLock & ?::SendInput {Media_Next}
 
 
 // Make Win Key + Capslock work like Capslock
